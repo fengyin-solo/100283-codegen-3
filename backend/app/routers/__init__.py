@@ -26,5 +26,7 @@ from app.routers import waterbody as router_waterbody
 from app.routers import code as router_code
 from app.routers import complaint as router_complaint
 from app.routers import seasonplan as router_seasonplan
+from app.routers import greenwall as router_greenwall
+from app.routers import greenwall_care as router_greenwall_care
 
-ROUTERS = [router_plot, router_tree, router_shrub, router_lawn, router_flower, router_pest, router_irrigation, router_fertilize, router_prune, router_patrol, router_weed, router_support, router_transplant, router_facility, router_equipment, router_seedling, router_waterbody, router_code, router_complaint, router_seasonplan]
+ROUTERS = [router_plot, router_tree, router_shrub, router_lawn, router_flower, router_pest, router_irrigation, router_fertilize, router_prune, router_patrol, router_weed, router_support, router_transplant, router_facility, router_equipment, router_seedling, router_waterbody, router_code, router_complaint, router_seasonplan, router_greenwall, router_greenwall_care]

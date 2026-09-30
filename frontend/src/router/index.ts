@@ -21,6 +21,9 @@ const Waterbody = () => import('@/views/waterbody/index.vue')
 const Code = () => import('@/views/code/index.vue')
 const Complaint = () => import('@/views/complaint/index.vue')
 const Seasonplan = () => import('@/views/seasonplan/index.vue')
+const Greenwall = () => import('@/views/greenwall/index.vue')
+const GreenwallCare = () => import('@/views/greenwall/CareView.vue')
+const GreenwallDetail = () => import('@/views/greenwall/DetailView.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,6 +49,10 @@ const router = createRouter({
     { path: '/code', name: 'code', component: Code },
     { path: '/complaint', name: 'complaint', component: Complaint },
     { path: '/seasonplan', name: 'seasonplan', component: Seasonplan },
+    { path: '/greenwall', name: 'greenwall', component: Greenwall },
+    // keepAlive：从详情页返回养护视图时恢复展开区域与滚动位置
+    { path: '/greenwall-care', name: 'greenwall-care', component: GreenwallCare, meta: { keepAlive: true } },
+    { path: '/greenwall/:id', name: 'greenwall-detail', component: GreenwallDetail, props: true },
   ],
 })
 
