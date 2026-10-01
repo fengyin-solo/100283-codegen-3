@@ -21,6 +21,8 @@ const Waterbody = () => import('@/views/waterbody/index.vue')
 const Code = () => import('@/views/code/index.vue')
 const Complaint = () => import('@/views/complaint/index.vue')
 const Seasonplan = () => import('@/views/seasonplan/index.vue')
+const Greenwall = () => import('@/views/greenwall/index.vue')
+const GreenwallDetail = () => import('@/views/greenwall/detail.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,7 +48,17 @@ const router = createRouter({
     { path: '/code', name: 'code', component: Code },
     { path: '/complaint', name: 'complaint', component: Complaint },
     { path: '/seasonplan', name: 'seasonplan', component: Seasonplan },
+    // 列表页 keepAlive：从绿墙详情返回时保留展开区域与滚动位置
+    { path: '/greenwall', name: 'greenwall', component: Greenwall, meta: { keepAlive: true } },
+    { path: '/greenwall/wall/:id', name: 'greenwall-detail', component: GreenwallDetail },
   ],
+  // 从绿墙详情返回下钻列表时保留滚动位置（store 里另有一份精确位置兜底）；
+  // 进入其它页面仍默认回到顶部
+  scrollBehavior(_to, from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (from.name === 'greenwall-detail' && _to.name === 'greenwall') return false
+    return { top: 0 }
+  },
 })
 
 export default router

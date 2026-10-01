@@ -257,6 +257,19 @@ class ComplaintEntry(BaseModel):
     field_6: str | None = None  # 处理结果
     field_7: str | None = None  # 记录状态
 
+class GreenwallEntry(BaseModel):
+    """垂直绿墙台账明细结构。"""
+
+    field_0: str | None = None  # 绿墙编号
+    field_1: str | None = None  # 绿墙名称
+    field_2: str | None = None  # 所属区域
+    field_3: str | None = None  # 面积
+    field_4: str | None = None  # 养护班组
+    field_5: str | None = None  # 灌溉方式
+    field_6: str | None = None  # 植物配置
+    field_7: str | None = None  # 绿墙状态
+
+
 class SeasonplanEntry(BaseModel):
     """养护方案明细结构。"""
 
